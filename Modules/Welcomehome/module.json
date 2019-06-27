@@ -1,0 +1,14 @@
+{
+    "name": "Welcomehome",
+    "alias": "welcomehome",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Welcomehome\\Providers\\WelcomehomeServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
