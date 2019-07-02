@@ -12,5 +12,13 @@
 */
 
 Route::prefix('satuan')->group(function() {
-    Route::get('/', 'SatuanController@index');
+    Route::get('/', 'SatuanController@index')->name('satuan.index');
+    
+    Route::get('/create', 'SatuanController@create')->name('satuan.create');
+    
+    Route::post('/save', 'SatuanController@store')->name('satuan.store');
+
+    Route::get('/delete/{id}', 'SatuanController@destroy')->name('satuan.destroy');
+    Route::get('/edit/{id}', 'SatuanController@edit')->name('satuan.edit');
+    Route::post('/update/{id}', 'SatuanController@update')->name('satuan.update');
 });

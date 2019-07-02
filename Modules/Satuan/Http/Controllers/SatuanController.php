@@ -5,6 +5,7 @@ namespace Modules\Satuan\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Satuan\Entities\Modelsatuan;
 
 class SatuanController extends Controller
 {
@@ -14,7 +15,8 @@ class SatuanController extends Controller
      */
     public function index()
     {
-        return view('satuan::index');
+        $modelsatuan = Modelsatuan::all(); //Menampilkan Seluruh Data
+        return view('satuan::index',['satuan' => $modelsatuan]);
     }
 
     /**
@@ -33,7 +35,10 @@ class SatuanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $modelsatuan = new Modelsatuan();
+        $modelsatuan->nama_satuan =  $request->nama_satuan; //namatabel = nama form
+        $modelsatuan->save();
+        return redirect()->route('satuan.index');
     }
 
     /**
@@ -53,7 +58,9 @@ class SatuanController extends Controller
      */
     public function edit($id)
     {
-        return view('satuan::edit');
+        $modelsatuan = Modelsatuan::find($id);
+        return view('satuan::edit',['satuan'=>$modelsatuan]);
+        //dd($modelsatuan);
     }
 
     /**
@@ -64,7 +71,10 @@ class SatuanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $modelsatuan = Modelsatuan::find($id);
+        $modelsatuan->nama_satuan =  $request->nama_satuan; //namatabel = nama form
+        $modelsatuan->save();
+        return redirect()->route('satuan.index');
     }
 
     /**
@@ -74,6 +84,8 @@ class SatuanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $modelsatuan = Modelsatuan::find($id);
+        $modelsatuan->delete();
+        return redirect()->route('satuan.index');
     }
 }
