@@ -24,6 +24,8 @@
     @yield('sectionheader')
     
 
+    @yield('content')
+
     
     <!-- /.content -->
   </div>
