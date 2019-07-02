@@ -1,4 +1,4 @@
-@extends('satuan::layouts.master')
+@extends('apps.layout')
 
 @section('content')
     <h1>Hello World</h1>
