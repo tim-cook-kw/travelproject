@@ -27,6 +27,7 @@ class CreateTransaksiTable extends Migration {
 			$table->integer('id_promo')->nullable()->index('id_promo');
 			$table->string('dari', 50);
 			$table->string('ke', 50);
+			$table->timestamps();
 		});
 	}
 

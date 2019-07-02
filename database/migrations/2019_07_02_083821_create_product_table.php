@@ -24,7 +24,6 @@ class CreateProductTable extends Migration {
 			$table->float('harga', 10, 0);
 			$table->text('deskripsi', 65535);
 			$table->date('tanggal_available');
-			$table->integer('id_bangku')->nullable()->index('id_bangku');
 		});
 	}
 

@@ -19,6 +19,7 @@ class CreatePelangganTable extends Migration {
 			$table->text('alamat', 65535);
 			$table->string('nomor_telepon', 13);
 			$table->string('foto');
+			$table->string('nama_pelanggan', 100);
 		});
 	}
 
