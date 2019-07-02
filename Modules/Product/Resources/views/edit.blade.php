@@ -2,13 +2,13 @@
 @section('sectionheader')
 <section class="content-header">
     <h1>
-      Product
-      <small>Product List</small>
+      Edit
+      <small>Edit Product</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-database"></i> Master Data</a></li>
       <li>Product</li>
-      <li class="active">Create Product</li>
+      <li class="active">Edit Product</li>
     </ol>
   </section>
 @endsection
@@ -16,16 +16,15 @@
 <section class="content">
    <div class="box box-primary">
         <div class="box-header">
-            
         </div>
         <div class="box-body">
             <div class="row">
-            <form action="{{route('product.store')}}" method="post">
+            <form action="{{route('product.update' ,['id' => $products->id_product])}}" method="post">
             {{csrf_field()}}
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Nama Product</label>
-                        <input class="form-control" name="nama_product">
+                        <input class="form-control" name="nama_product" value="{{$products->nama_product}}">
                     </div>
                     <div class="form-group">
                         <label>Satuan Product</label>
@@ -37,11 +36,11 @@
                     </div>
                     <div class="form-group">
                         <label>Total Seat</label>
-                        <input class="form-control" name="total_seat">
+                        <input class="form-control" name="total_seat" value="{{$products->total_seat}}">
                     </div>
                     <div class="form-group">
                         <label>Harga</label>
-                        <input class="form-control" name="harga">
+                        <input class="form-control" name="harga" value="{{$products->harga}}">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -55,7 +54,7 @@
                     </div>
                     <div class="form-group">
                         <label>Nama Brand</label>
-                        <input class="form-control" name="nama_brand">
+                        <input class="form-control" name="nama_brand" value="{{$products->nama_brand}}">
                     </div>
                     <div class="form-group">
                         <label>Status</label>
@@ -66,7 +65,7 @@
                     </div>
                     <div class="form-group">
                         <label>Deskripsi</label>
-                        <textarea class="form-control" name="deskripsi"></textarea>
+                        <textarea class="form-control" name="deskripsi">{{$products->deskripsi}}</textarea>
                     </div>
                     <button class="btn btn-primary" type="submit" href=>Simpan</button>
                     </form>
