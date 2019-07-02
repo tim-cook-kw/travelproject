@@ -2,6 +2,8 @@
 
 namespace Modules\Homepage\Http\Controllers;
 
+use App\User;
+use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
@@ -14,7 +16,15 @@ class HomepageController extends Controller
      */
     public function index()
     {
-        return view('homepage::index');
+        $periodUser = User::getPeriod();
+        $chartUser = User::chartUser();
+
+        $periodTransaction = Transaction::getPeriod();
+        $chartTransaction = Transaction::chartTransaction();
+        
+        $chartMonthUser = User::chartMonthUser();
+        $chartMonthTransaction = Transaction::chartMonthTransaction();
+        return view('homepage::index', compact('chartMonthUser', 'chartMonthTransaction', 'chartUser', 'chartTransaction', 'periodUser', 'periodTransaction'));
     }
 
     /**
