@@ -24,6 +24,7 @@
     @yield('sectionheader')
     @yield('content')
     
+    @yield('content')
 
     
     <!-- /.content -->

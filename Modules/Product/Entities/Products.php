@@ -9,4 +9,5 @@ class products extends Model
     protected $fillable = [];
     protected $table = 'product';
     protected $primaryKey = 'id_product';
+    public $timestamps = false;
 }
