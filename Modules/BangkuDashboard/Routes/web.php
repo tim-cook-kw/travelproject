@@ -12,9 +12,9 @@
 */
 
 Route::prefix('bangkudashboard')->group(function() {
-Route::get('bangkudashboard', 'BangkuDashboardController@index')->name('bangku.index');
-Route::post('tambah_bangku','BangkuDashboardController@store')->name('tambahbangku');
-Route::get('tambah_bangku','BangkuDashboardController@create')->name('tambah_bangku');
+Route::get('/', 'BangkuDashboardController@index')->name('bangku.index');
+Route::post('tambah_bangku','BangkuDashboardController@store')->name('tambah_bangku');
+Route::get('create','BangkuDashboardController@create')->name('bangku.create');
 
 Route::get('delete/{id}','BangkuDashboardController@destroy')->name('hapus');
 Route::post('update/{id}','BangkuDashboardController@update')->name('bangkudashboard.update_bangku');

@@ -5,7 +5,7 @@ use Modules\BangkuDashboard\Entities\Bangku;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
+use Illuminate\Support\Facades\DB;
 class BangkuDashboardController extends Controller
 {
     /**
@@ -14,7 +14,7 @@ class BangkuDashboardController extends Controller
      */
     public function index()
     {
-        $bangku = Bangku::all();
+        $bangku = DB::table('bangku')->join('product', 'product.id_product', '=', 'bangku.id_product')->select('bangku.*','product.nama_product')->get();
         return view('bangkudashboard::index',compact('bangku'));
     }
 
@@ -24,7 +24,8 @@ class BangkuDashboardController extends Controller
      */
     public function create()
     {
-        return view('bangkudashboard::create');
+        $data = DB::table('product')->get();
+        return view('bangkudashboard::create',['product' => $data]);
     }
 
     /**
@@ -36,9 +37,9 @@ class BangkuDashboardController extends Controller
     {
 
        $bangku = new Bangku;
-       $bangku -> id_product = $request -> product;
-       $bangku -> nomor_bangku = $request -> nomor_bangku;
-       $bangku -> save ();
+       $bangku->id_product = $request ->id_product;
+       $bangku->nomor_bangku = $request->nomor_bangku;
+       $bangku->save ();
        return redirect()->back();
     }
 
