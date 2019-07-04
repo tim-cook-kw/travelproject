@@ -1,9 +1,10 @@
 <?php
 
 namespace Modules\Book\Http\Controllers;
-
+use App\Book;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Routing\Controller;
 
 class BookController extends Controller
@@ -13,8 +14,16 @@ class BookController extends Controller
      * @return Response
      */
     public function index()
-    {
-        return view('book::index');
+    {   
+        $booking = DB::table('booking')
+        ->join('transaksi', 'booking.id_transaksi', '=', 'transaksi.id_transaksi')
+        ->join('pelanggan','transaksi.id_pelanggan','=','pelanggan.id_pelanggan')
+        ->join('bangku','transaksi.id_bangku','=','bangku.id_bangku')
+        ->join('product','transaksi.id_product','=','product.id_product')
+        ->join('user','pelanggan.id_user','=','user.id_user')
+        ->get();
+        
+     return view('book::booking',compact('booking'));
     }
 
     /**
@@ -33,7 +42,11 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $booking = DB::table('booking')
+            ->join('transaksi', 'transaksi.id', '=', 'transaksi.id_transaksi')
+            ->join('booking', 'users.id', '=', 'orders.user_id')
+            ->select('users.*', 'contacts.phone', 'orders.price')
+            ->get();
     }
 
     /**
