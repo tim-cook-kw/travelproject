@@ -99,6 +99,8 @@ class LogindasboardController extends Controller
        $data = Login::where('email',$email)->first();
        if($data){
         if(Hash::check($password ,$data->password)){
+            Session::put('id_user',$data->id_user); 
+            Session::put('id_roles',$data->id_roles); 
             Session::put('email',$data->email); 
             Session::put('login',TRUE);
             return redirect('homepage');
