@@ -90,6 +90,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href=""><i class="fa fa-circle-o"></i>Transaksi</a></li>
+              <li><a href="book"><i class="fa fa-circle-o"></i>Booking List</a></li>
           </ul>
         </li>
         <li>
