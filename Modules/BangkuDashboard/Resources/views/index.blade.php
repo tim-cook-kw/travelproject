@@ -15,7 +15,7 @@
 <section class="content">
         <div class="box box-primary">
             <div class="box-header">
-            <a class="btn btn-primary" href="{{route('tambah_bangku')}}"> Tambah Data</a>
+            <a class="btn btn-primary" href="{{route('bangku.create')}}"> Tambah Data</a>
             </div>
             <div class="box-body">
                 <table class="table">

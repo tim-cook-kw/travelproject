@@ -20,7 +20,7 @@
         </div>
         <div class="box-body">
             <div class="row">
-            <form action="{{route('tambahbangku')}}" method="post">
+            <form action="{{route('tambah_bangku')}}" method="post">
             {{csrf_field()}}
                 <div class="col-md-6">
                 <div class="form-group">
@@ -38,7 +38,7 @@
                     
                     <button class="btn btn-primary" type="submit" href=>Simpan</button>
                     </form>
-                    <a class="btn btn-default" href="{{route('product.index')}}">Cancel</a>
+                    <a class="btn btn-default" href="{{route('bangku.index')}}">Cancel</a>
                 </div>
             </div>
         </div>
