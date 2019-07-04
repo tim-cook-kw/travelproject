@@ -41,11 +41,13 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Kategori</a></li>
-            <li><a href="l"><i class="fa fa-circle-o"></i> Bangku</a></li>
+            <li class="active"><a href="{{ route('bangku')}}"><i class="fa fa-circle-o"></i> Bangku</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+            <li><a href="{{route('bangku.index')}}"><i class="fa fa-circle-o"></i> Bangku</a></li>
             <li><a href="{{route('satuan.index')}}"><i class="fa fa-circle-o"></i> Satuan</a></li>
             <li><a href=""><i class="fa fa-circle-o"></i> Roles</a></li>
             <li><a href="{{route('product.index')}}"><i class="fa fa-circle-o"></i> Product</a></li>
+            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Kategori</a></li>
           </ul>
         </li>
         <li class="treeview">
