@@ -1,14 +1,28 @@
 @extends('apps.layout')
 @section('sectionheader')
+<div class="content">
+
+<section class="content-header">
+<h1>
+View Booking
+<small>Control panel</small>
+</h1>
+<ol class="breadcrumb">
+<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+<li class="active">View Booking</li>
+</ol>
+</section>
+</section>
 <div class="box box-primary">
     <div class="box-header">
-    <h3>View Booking</h3>
+    
     </div>
     <div class="box-body">
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>No</th>
+                 
                     <th>Email Custommer</th>
                     <th>Nomer Bangku</th>
                     <th>Status Booking</th>
@@ -30,6 +44,7 @@
                 <?php $no++ ;?>
                 <tr>
                     <td>{{$no}}</td>
+                
                     <td>{{$book->email}}</td>
                     <td>{{$book->nomor_bangku}}</td>
                     <td>{{$book->status}}</td>
@@ -51,5 +66,7 @@
     </div>
 </div>
 </div>
+
+
 
 @endsection

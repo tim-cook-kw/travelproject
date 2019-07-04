@@ -42,11 +42,11 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $booking = DB::table('booking')
-            ->join('transaksi', 'transaksi.id', '=', 'transaksi.id_transaksi')
-            ->join('booking', 'users.id', '=', 'orders.user_id')
-            ->select('users.*', 'contacts.phone', 'orders.price')
-            ->get();
+        // $booking = DB::table('booking')
+        //     ->join('transaksi', 'transaksi.id', '=', 'transaksi.id_transaksi')
+        //     ->join('booking', 'users.id', '=', 'orders.user_id')
+        //     ->select('users.*', 'contacts.phone', 'orders.price')
+        //     ->get();
     }
 
     /**
