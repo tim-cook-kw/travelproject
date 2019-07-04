@@ -33,14 +33,20 @@
                 <tr>
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$ktgr->nama_kategori}}</td>
-                    <td>
-                        <a class="btn btn-success btn-sm" href="{{route('category.edit', ['id' => $ktgr->id_kategori])}}"> Edit </a>
-
-                        <form action="{{route('category.destroy', ['id' => $ktgr->id_kategori])}}" method="post">
-                            <input type="hidden" name="_method" value="delete" />
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <button class="btn btn-danger btn-sm" type="submit"> Delete </button>
-                        </form>
+                    <td style="width:150px;">
+                     <div class="row">
+                        <div class="col-md-4">
+                            <a class="btn btn-success btn-sm" href="{{route('category.edit', ['id' => $ktgr->id_kategori])}}"> Edit </a>  
+                        </div>
+                        <div class="col-md-4">
+                            <form action="{{route('category.destroy', ['id' => $ktgr->id_kategori])}}" class="d-inline" method="post">
+                                <input type="hidden" name="_method" value="delete" />
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                
+                                <button class="btn btn-danger btn-sm" type="submit"> Delete </button>
+                            </form>
+                        </div>
+                        </div>
                     </td>
                 </tr>
                 @endforeach 

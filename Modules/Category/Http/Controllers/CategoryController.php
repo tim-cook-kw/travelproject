@@ -48,7 +48,9 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        return view('category::show');
+        $kategori = Category::findOrFail($id);
+        $kategori->delete();
+        return redirect()->back();
     }
 
     /**
@@ -84,8 +86,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
+        
         $kategori = Category::findOrFail($id);
         $kategori->delete();
-        return redirect()->route('category.index');
+        return redirect()->back();
     }
 }
