@@ -23,10 +23,6 @@
     <!-- Content Header (Page header) -->
     @yield('sectionheader')
     @yield('content')
-
-    
-    @yield('content')
-    
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
