@@ -22,15 +22,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     @yield('sectionheader')
-<<<<<<< HEAD
     @yield('content')
-=======
-    
-
-    @yield('content')
-
->>>>>>> category
-    
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
