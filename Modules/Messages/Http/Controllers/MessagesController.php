@@ -17,6 +17,12 @@ class MessagesController extends Controller
         return view('messages::index');
     }
 
+    public function save(Request $request)
+    {
+        dd($request);
+        //return view('messages::index');
+    }
+
     /**
      * Show the form for creating a new resource.
      * @return Response

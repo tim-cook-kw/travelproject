@@ -34,16 +34,19 @@
 
                     </div>
                 </li>
-                
+
             </ul>
         </div>
         <div class="panel-footer">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Enter Message" />
-                <span class="input-group-btn">
-                    <button class="btn btn-info" type="button">SEND</button>
-                </span>
-            </div>
+            <form action="{{ route('post.save')}}" method="post">
+                @csrf
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Enter Message" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info" type="button">SEND</button>
+                    </span>
+                </div>
+            </form>
         </div>
     </div>
 </div>

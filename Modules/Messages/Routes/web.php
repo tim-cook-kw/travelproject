@@ -12,5 +12,7 @@
 */
 
 Route::prefix('messages')->group(function() {
-    Route::get('/', 'MessagesController@index');
+    Route::get('/', 'MessagesController@index')->name('index');
+    Route::post('/post', 'MessagesController@post')->name('post.send');
 });
+

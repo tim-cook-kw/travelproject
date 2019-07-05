@@ -14,7 +14,7 @@ class CreatePesanTable extends Migration
     public function up()
     {
         Schema::create('pesan', function (Blueprint $table) {
-            $table->integer('id_pesan')->index();
+            $table->bigIncrements('id_pesan');
 			$table->integer('id_customer');
 			$table->string('pesan', 255);
             $table->timestamps();

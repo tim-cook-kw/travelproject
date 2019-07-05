@@ -14,7 +14,7 @@ class CreateBalesanPesanTable extends Migration
     public function up()
     {
         Schema::create('balesan_pesan', function (Blueprint $table) {
-            $table->integer('id_reply')->index();
+            $table->bigIncrements('id_reply');
             $table->integer('id_pesan');
 			$table->integer('id_customer');
 			$table->string('pesan', 225);
