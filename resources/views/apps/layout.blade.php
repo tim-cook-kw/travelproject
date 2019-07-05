@@ -22,7 +22,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     @yield('sectionheader')
+    
     @yield('content')
+
+    
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
