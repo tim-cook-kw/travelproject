@@ -5,6 +5,7 @@ namespace Modules\Messages\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Messages\Entities\Pesan;
 
 class MessagesController extends Controller
 {
@@ -14,13 +15,24 @@ class MessagesController extends Controller
      */
     public function index()
     {
-        return view('messages::index');
+        $pesans = Pesan::all();
+        return view('messages::index', compact('pesans'));
+        // return view('messages::index');
     }
 
-    public function save(Request $request)
+    public function send(Request $request)
     {
-        dd($request);
-        //return view('messages::index');
+        //dd($request);
+        $data = new Pesan($request->all());
+        $data->id_pesan = null;
+        $data->id_customer = null;
+        $data->save();
+
+        if ($data) {
+            return redirect()->route('index');
+        } else {
+            return back();
+        }
     }
 
     /**
@@ -47,9 +59,10 @@ class MessagesController extends Controller
      * @param int $id
      * @return Response
      */
-    public function show($id)
+    public function show()
     {
-        return view('messages::show');
+        $pesans = Pesan::all();
+        return view('pesan.show', compact('pesans'));
     }
 
     /**

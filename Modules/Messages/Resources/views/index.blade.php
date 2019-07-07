@@ -9,7 +9,7 @@
             RECENT CHAT HISTORY
         </div>
         <div class="panel-body">
-            <ul class="media-list">
+            <!-- <ul class="media-list">
 
                 <li class="media">
 
@@ -35,15 +35,25 @@
                     </div>
                 </li>
 
-            </ul>
+            </ul> -->
+            @foreach($pesan as $post)
+            <tr>
+                <td>{{ $post->id_pesan }}</td>
+                <td>{{ $post->id_customer }}</td>
+                <td>{{ $post->pesan }}</td>
+                <td>{{ $post->updated_at }}</td>
+                <td>{{ $post->created_at }}</td>
+            </tr>
+            @endforeach
         </div>
         <div class="panel-footer">
-            <form action="{{ route('post.save')}}" method="post">
+            <form action="{{ route('pesan.send') }}" method="post">
                 @csrf
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Enter Message" />
+                <div class="form-group">
+                    <input type="text" class="form-control" name="pesan">
+                    <br>
                     <span class="input-group-btn">
-                        <button class="btn btn-info" type="button">SEND</button>
+                        <button class="btn btn-primary">SEND</button>
                     </span>
                 </div>
             </form>
