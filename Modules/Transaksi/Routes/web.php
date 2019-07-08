@@ -13,4 +13,7 @@
 
 Route::prefix('transaksi')->group(function() {
     Route::get('/', 'TransaksiController@index')->name('transaksi');
+    Route::post('/update/{id}', 'TransaksiController@update')->name('update_transaksi');
+    Route::get('/sendinvoice/{id}','TransaksiController@invoice')->name('invoice');
 });
+

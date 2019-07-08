@@ -7,37 +7,32 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                @foreach($news as $k)
-                <form action="dashboard_news/update/{{ $k->id }}" method="post">
-                    @endforeach
+                <form class="update" method="post">
                     @csrf
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">Nama</label>
-                            <input type="text" name="nama" class="form-control" id="inputEmail4" placeholder="Nama">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">Description</label>
-                            <input type="text" name="description" class="form-control" id="inputEmail5" placeholder="Description">
+                        <div class="form-group col-md-12">
+                            <label for="Status">Status</label>
+                            <select name="Status" id="update_status" class="form-control">
+                                <option value="pending">Pending</option>
+                                <option value="cancel">Cancel</option>
+                                <option value="success">Success</option>
+                                <option value="proccess">Proccess</option>
+                            </select>
                         </div>
 
+                        <div class="form-group col-md-12">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                            <button type="button" name="close" data-toogle="modal" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                        </div>
                     </div>
-
-                        <div class="form-row">
-
-                            <div class="form-group">
-                                <label for="exampleFormControlFile1">Masukan Foto 3x4</label>
-                                <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
 
             </div>
+
             <div class="modal-footer">
-                <button type="button" name="close" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
+                </div>
         </div>
 
     </div>

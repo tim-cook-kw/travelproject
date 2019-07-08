@@ -29,30 +29,37 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($a as $a)
+            {!! QrCode::size(100)->generate(Request::url()); !!}
+            @foreach ($a as $a)
 
             <tr>
-                <td class="text-center">1</td>
-                <td class="text-center">2</td>
-                <td class="text-center">Total Harga</td>
-                <td class="text-center">Bukti Transaksi</td>
-                <td class="text-center">Pending</td>
-                <td class="text-center">2019-07-03</td>
-                <td class="text-center">2019-07-10</td>
-                <td class="text-center"><a class='btn btn-success btn-xs edit-item' value='' href="#"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-                    <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                <td class="text-center">{{ $a->id_transaksi }}</td>
+                <td class="text-center">{{ $a->qty }}</td>
+                <td class="text-center">{{ $a->total_harga }}</td>
+                <td class="text-center">{{ $a->bukti_transaksi}}</td>
+                <td class="text-center">{{ $a->status }}</td>
+                <td class="text-center">{{ $a->tanggal_keberangkatan }}</td>
+                <td class="text-center">{{ $a->tanggal_pulang }}</td>
+                <td class="text-center">
+               <a href="/transaksi/sendinvoice/{{ $a->id_transaksi }}" class='btn btn-success btn-xs'><span class="glyphicon glyphicon-send"></span>Send invoice</a>
+               <a class='btn btn-success btn-xs edit-item' value="{{ $a->id_transaksi }}" href="#" data-toogle="modal"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+                <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+
+
             </tr>
             @endforeach
-        </tbody>
+        </body>
+
     </table>
 </div>
 @stop
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
         $(document).on('click','.edit-item',function () {
-                        var a = $(this).val();
-                        $(".bayar").attr('action', "/penerimaan_versekot/"+a+"/bayar");
-                        $("#bayar").modal();
+                        var a = $(this).attr("value");
+                        $(".update").attr('action', "/transaksi/update/"+ a);
+                        $("#update_transaksi").modal();
                    });
        });
 </script>
