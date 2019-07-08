@@ -1,0 +1,14 @@
+{
+    "name": "AuthHomepage",
+    "alias": "authhomepage",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\AuthHomepage\\Providers\\AuthHomepageServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
