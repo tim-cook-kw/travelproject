@@ -93,10 +93,10 @@ class MessagesController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy($_id)
+    public function destroy($id)
     {
-        $pesans = Pesan::find($_id);
+        $pesans = Pesan::find($id);
         $pesans->delete();
-        return redirect('messages::index')->with('success','Car has been  deleted');
+        return redirect()->route('pesan.show')->with('success','Pesan has been  deleted');
     }
 }

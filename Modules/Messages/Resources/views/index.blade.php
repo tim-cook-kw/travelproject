@@ -48,18 +48,17 @@
                                 <img class="media-object img-circle " src="assets/img/user.png" />
                             </a>
                             <div class="media-body">
-
                                 {{ $pesan->pesan }}
                                 <br />
                                 <small class="text-muted">Alex Deo | {{ $pesan->created_at }}</small>
+                                <a 
+                                    href="{{ route('pesan.delete',$pesan->_id)}}" 
+                                    onclick="return confirm('Are you sure want to delete this post?')" 
+                                    class="btn btn-danger btn-sm">Delete
+                                </a>
                                 <hr />
                             </div>
                         </div>
-                        <form action="{{action('MessagesController@destroy', $pesan->_id)}}" method="post">
-                            @csrf
-                            <input name="_method" type="hidden" value="DELETE">
-                            <button class="btn btn-danger" type="submit">Delete</button>
-                        </form>
                     </div>
                 </li>
 
