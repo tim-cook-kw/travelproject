@@ -41,8 +41,8 @@
 						</div>
 						<input name="password" type="password" class="form-control" placeholder="password">
 					</div>
-					<div class="row align-items-center remember">
-						<input type="checkbox">Remember Me
+					<div class="row align-items-center remember checklist">
+						<input type="checkbox" required>Remember Me
 					</div>
 					<div class="form-group">
 						<input type="submit" value="Login" class="btn float-right login_btn">
@@ -60,5 +60,16 @@
 		</div>
 	</div>
 </div>
+
+<script>
+    $(function () {
+      $('input').checklist({
+        checkboxClass: 'icheckbox_square-blue',
+        radioClass: 'iradio_square-blue',
+        increaseArea: '20%' /* optional */
+      });
+    });
+  </script>
+
 </body>
 </html>

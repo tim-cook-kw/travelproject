@@ -13,6 +13,12 @@
           <li class="nav-item"><a href="hotel.html" class="nav-link">Hotels</a></li>
           <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        @if(Auth::check()) 
+          <li class="nav-item"><a href="{{route('login.index')}}" class="nav-link">Login</a></li>
+        @else
+        <li class="nav-item"><a href="{{route('homepage.logout')}}" class="nav-link">Logout</a></li>
+        @endif
+         
         </ul>
       </div>
     </div>

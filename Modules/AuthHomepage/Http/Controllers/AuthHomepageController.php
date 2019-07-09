@@ -102,7 +102,7 @@ class AuthHomepageController extends Controller
             Session::put('id_roles',$data->id_roles); 
             Session::put('email',$data->email); 
             Session::put('login',TRUE);
-            return redirect('/authhomepage/homepage');
+            return redirect('/home');
         } else{
             return redirect()->back()->with('alert','Password or Email Undefined !');    
         }    
