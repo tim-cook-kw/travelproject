@@ -14,5 +14,5 @@
 Route::prefix('messages')->group(function () {
     Route::get('/', 'MessagesController@index')->name('index');
     Route::post('/send', 'MessagesController@send')->name('pesan.send');
-    Route::get('/show/{_id}', 'MessagesController@show')->name('pesan.show');
+    Route::get('/show', 'MessagesController@show')->name('pesan.show');
 });

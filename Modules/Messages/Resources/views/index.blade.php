@@ -36,15 +36,39 @@
                 </li>
 
             </ul> -->
-            @foreach($pesan as $post)
+            @foreach($pesans as $pesan)
+            <ul class="media-list">
+
+                <li class="media">
+
+                    <div class="media-body">
+
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object img-circle " src="assets/img/user.png" />
+                            </a>
+                            <div class="media-body">
+
+                                {{ $pesan->pesan }}
+                                <br />
+                                <small class="text-muted">Alex Deo | {{ $pesan->created_at }}</small>
+                                <hr />
+                            </div>
+                        </div>
+                        <form action="{{action('MessagesController@destroy', $pesan->_id)}}" method="post">
+                            @csrf
+                            <input name="_method" type="hidden" value="DELETE">
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                        </form>
+                    </div>
+                </li>
+
+                <!-- </ul>
             <tr>
-                <td>{{ $post->id_pesan }}</td>
-                <td>{{ $post->id_customer }}</td>
-                <td>{{ $post->pesan }}</td>
-                <td>{{ $post->updated_at }}</td>
-                <td>{{ $post->created_at }}</td>
-            </tr>
-            @endforeach
+                <td>{{ $pesan->id_pesan }}</td>
+                <td>{{ $pesan->id_customer }}</td>
+            </tr> -->
+                @endforeach
         </div>
         <div class="panel-footer">
             <form action="{{ route('pesan.send') }}" method="post">

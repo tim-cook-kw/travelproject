@@ -15,9 +15,7 @@ class MessagesController extends Controller
      */
     public function index()
     {
-        $pesans = Pesan::all();
-        return view('messages::index', compact('pesans'));
-        // return view('messages::index');
+        return view('messages::index');
     }
 
     public function send(Request $request)
@@ -29,7 +27,7 @@ class MessagesController extends Controller
         $data->save();
 
         if ($data) {
-            return redirect()->route('index');
+            return redirect()->route('pesan.show');
         } else {
             return back();
         }
@@ -62,7 +60,11 @@ class MessagesController extends Controller
     public function show()
     {
         $pesans = Pesan::all();
-        return view('pesan.show', compact('pesans'));
+        return view('messages::index', compact('pesans'));
+
+        // $pesans = DB::collection('pesans')->raw('id_pesan', 'id_customer', 'pesan');
+
+        // return view('messages::show', ['pesan' => $pesans]);
     }
 
     /**
@@ -91,8 +93,10 @@ class MessagesController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($_id)
     {
-        //
+        $pesans = Pesan::find($_id);
+        $pesans->delete();
+        return redirect('messages::index')->with('success','Car has been  deleted');
     }
 }
